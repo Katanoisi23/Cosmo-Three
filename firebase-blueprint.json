@@ -1,0 +1,40 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile information",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "surname": { "type": "string" },
+        "email": { "type": "string" },
+        "createdAt": { "type": "number" }
+      },
+      "required": ["email", "createdAt"]
+    },
+    "Tree": {
+      "title": "Tree",
+      "description": "A spatial board containing nodes and links",
+      "type": "object",
+      "properties": {
+        "typeName": { "type": "string", "description": "The name of the board" },
+        "userName": { "type": "string", "description": "The name of the user" },
+        "nodes": { "type": "array", "description": "List of nodes on the board" },
+        "links": { "type": "array", "description": "List of links between nodes" },
+        "ownerId": { "type": "string", "description": "UID of the owner" },
+        "updatedAt": { "type": "number", "description": "Last update timestamp" }
+      },
+      "required": ["ownerId", "updatedAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profiles"
+    },
+    "/trees/{treeId}": {
+      "schema": "Tree",
+      "description": "Collection of spatial boards"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    @apply bg-black text-white overflow-hidden;
+  }
+
+  /* Forcefully hide cursor on EVERYTHING, including hover and active states */
+  *, *::before, *::after, *:hover, *:active, *:focus {
+    cursor: none !important;
+  }
+}
